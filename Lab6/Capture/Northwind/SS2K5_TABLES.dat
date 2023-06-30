@@ -1,0 +1,13 @@
+Orders	OMwB_Column	21575115	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+Products	OMwB_Column	117575457	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+Order Details	OMwB_Column	325576198	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+CustomerCustomerDemo	OMwB_Column	853578079	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+CustomerDemographics	OMwB_Column	869578136	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+Region	OMwB_Column	885578193	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+Territories	OMwB_Column	901578250	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+EmployeeTerritories	OMwB_Column	917578307	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+Employees	OMwB_Column	1977058079	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+Categories	OMwB_Column	2041058307	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+Customers	OMwB_Column	2073058421	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+Shippers	OMwB_Column	2105058535	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row
+Suppliers	OMwB_Column	2137058649	OMwB_Column	1	OMwB_Column	U 	OMwB_Column	OMwB_Row

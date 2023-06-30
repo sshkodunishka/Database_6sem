@@ -1,0 +1,81 @@
+
+SQL*Loader: Release 11.1.0.6.0 - Production on Fri Aug 22 12:46:16 2008
+
+Copyright (c) 1982, 2007, Oracle.  All rights reserved.
+
+Control File:   Oracle\dbo_Northwind.Customers.ctl
+Data File:      [Northwind].[dbo].[Customers].dat
+  File processing option string: "str '<EORD>'"
+  Bad File:     Oracle\[Northwind].[dbo].[Customers].bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table DBO_NORTHWIND.CUSTOMERS, loaded from every logical record.
+Insert option in effect for this table: INSERT
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+CUSTOMERID                          FIRST     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:CustomerID, CHR(00), ' ', :CustomerID)"
+COMPANYNAME                          NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:CompanyName, CHR(00), ' ', :CompanyName)"
+CONTACTNAME                          NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:ContactName, CHR(00), ' ', :ContactName)"
+CONTACTTITLE                         NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:ContactTitle, CHR(00), ' ', :ContactTitle)"
+ADDRESS                              NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Address, CHR(00), ' ', :Address)"
+CITY                                 NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:City, CHR(00), ' ', :City)"
+REGION                               NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Region, CHR(00), ' ', :Region)"
+POSTALCODE                           NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:PostalCode, CHR(00), ' ', :PostalCode)"
+COUNTRY                              NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Country, CHR(00), ' ', :Country)"
+PHONE                                NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Phone, CHR(00), ' ', :Phone)"
+FAX                                  NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Fax, CHR(00), ' ', :Fax)"
+
+
+Table DBO_NORTHWIND.CUSTOMERS:
+  91 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 181632 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:            91
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Fri Aug 22 12:46:16 2008
+Run ended on Fri Aug 22 12:46:16 2008
+
+Elapsed time was:     00:00:00.07
+CPU time was:         00:00:00.05

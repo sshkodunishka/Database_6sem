@@ -1,0 +1,13 @@
+1	OMwB_Column	dbo	OMwB_Column	OMwB_Row
+2	OMwB_Column	guest	OMwB_Column	OMwB_Row
+3	OMwB_Column	INFORMATION_SCHEMA	OMwB_Column	OMwB_Row
+4	OMwB_Column	sys	OMwB_Column	OMwB_Row
+16384	OMwB_Column	db_owner	OMwB_Column	OMwB_Row
+16385	OMwB_Column	db_accessadmin	OMwB_Column	OMwB_Row
+16386	OMwB_Column	db_securityadmin	OMwB_Column	OMwB_Row
+16387	OMwB_Column	db_ddladmin	OMwB_Column	OMwB_Row
+16389	OMwB_Column	db_backupoperator	OMwB_Column	OMwB_Row
+16390	OMwB_Column	db_datareader	OMwB_Column	OMwB_Row
+16391	OMwB_Column	db_datawriter	OMwB_Column	OMwB_Row
+16392	OMwB_Column	db_denydatareader	OMwB_Column	OMwB_Row
+16393	OMwB_Column	db_denydatawriter	OMwB_Column	OMwB_Row

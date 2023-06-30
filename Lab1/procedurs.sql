@@ -112,7 +112,8 @@ begin
 end
 go
 
-create procedure UpdateTour
+  create or alter procedure UpdateTour
+	@idTours int,
 	@idCountry int,
 	@idOperator int,
 	@tourName nvarchar(255),
@@ -120,15 +121,15 @@ create procedure UpdateTour
 as
 begin
 	update Tours
-	set idCountry = @idCountry, idOperator = @idOperator, descr = @descr where tourName = @tourName
+	set idCountry = @idCountry, idOperator = @idOperator, descr = @descr, tourName = @tourName where idTours = @idTours
 end
 go
 
-create procedure DeleteTour
-	@tourName nvarchar(255)
+create or alter procedure DeleteTour
+	@idTours int
 as 
 begin
-	delete Tours where tourName = @tourName;
+	delete Tours where idTours = @idTours;
 end
 go
 
@@ -138,7 +139,6 @@ create procedure AddVoucher
 	@idTour int,
 	@voucherName nvarchar(255),
 	@descr nvarchar(255),
-	@fullPrice money,
 	@price money,
 	@numberOfPeople int,
 	@nutrition bit,
@@ -147,8 +147,8 @@ create procedure AddVoucher
 	@discount int
 as
 begin 
-insert into Vouchers(idTour,voucherName, descr, fullPrice, price, numberOfPeople,nutrition, accommodation,hot,discount)
-values(@idTour,@voucherName, @descr,@fullPrice,@price,@numberOfPeople,@nutrition,@accommodation,@hot,@discount )
+insert into Vouchers(idTour,voucherName, descr, price, numberOfPeople,nutrition, accommodation,hot,discount)
+values(@idTour,@voucherName, @descr,@price,@numberOfPeople,@nutrition,@accommodation,@hot,@discount )
 end
 go
 
@@ -180,7 +180,7 @@ create procedure UpdateVoucher
 as
 begin
 	update Vouchers
-	set idTour = @idTour, descr = @descr, fullPrice = @fullPrice, price = @price, numberOfPeople = @numberOfPeople,
+	set idTour = @idTour, descr = @descr, price = @price, numberOfPeople = @numberOfPeople,
 	nutrition= @nutrition, accommodation = @accommodation, hot = @hot, discount = @discount where voucherName = @voucherName
 end
 go

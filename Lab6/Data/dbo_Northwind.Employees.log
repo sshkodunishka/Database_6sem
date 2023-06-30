@@ -1,0 +1,101 @@
+
+SQL*Loader: Release 11.1.0.6.0 - Production on Fri Aug 22 12:46:15 2008
+
+Copyright (c) 1982, 2007, Oracle.  All rights reserved.
+
+Control File:   Oracle\dbo_Northwind.Employees.ctl
+Data File:      [Northwind].[dbo].[Employees].dat
+  File processing option string: "str '<EORD>'"
+  Bad File:     Oracle\[Northwind].[dbo].[Employees].bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table DBO_NORTHWIND.EMPLOYEES, loaded from every logical record.
+Insert option in effect for this table: INSERT
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+EMPLOYEEID                          FIRST     *           CHARACTER            
+    Terminator string : '<EOFD>'
+LASTNAME                             NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:LastName, CHR(00), ' ', :LastName)"
+FIRSTNAME                            NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:FirstName, CHR(00), ' ', :FirstName)"
+TITLE                                NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Title, CHR(00), ' ', :Title)"
+TITLEOFCOURTESY                      NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:TitleOfCourtesy, CHR(00), ' ', :TitleOfCourtesy)"
+BIRTHDATE                            NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "TO_TIMESTAMP(:BirthDate, 'yyyy-mm-dd HH24:mi:ss.ff3')"
+HIREDATE                             NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "TO_TIMESTAMP(:HireDate, 'yyyy-mm-dd HH24:mi:ss.ff3')"
+ADDRESS                              NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Address, CHR(00), ' ', :Address)"
+CITY                                 NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:City, CHR(00), ' ', :City)"
+REGION                               NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Region, CHR(00), ' ', :Region)"
+POSTALCODE                           NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:PostalCode, CHR(00), ' ', :PostalCode)"
+COUNTRY                              NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Country, CHR(00), ' ', :Country)"
+HOMEPHONE                            NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:HomePhone, CHR(00), ' ', :HomePhone)"
+EXTENSION                            NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:Extension, CHR(00), ' ', :Extension)"
+SQLDEVELOPER_CLOB_15                 NEXT *****           CHARACTER            
+    Maximum field length is 2000000
+    Terminator string : '<EOFD>'
+NOTES                                NEXT *****           CHARACTER            
+    Maximum field length is 2000000
+    Terminator string : '<EOFD>'
+REPORTSTO                            NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+PHOTOPATH                            NEXT   510           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:PhotoPath, CHR(00), ' ', :PhotoPath)"
+
+value used for ROWS parameter changed from 64 to 1
+
+Table DBO_NORTHWIND.EMPLOYEES:
+  9 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                4004390 bytes(1 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:             9
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Fri Aug 22 12:46:15 2008
+Run ended on Fri Aug 22 12:46:16 2008
+
+Elapsed time was:     00:00:00.25
+CPU time was:         00:00:00.08

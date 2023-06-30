@@ -13,20 +13,20 @@ exec addCountries @country = 'France', @visa = 1;
 exec addCountries @country = 'Greece', @visa = 0;
 
 exec AddTour @idCountry = 1, @idOperator = 1, @tourName = 'Cheel', @descr= 'Good trip';
-exec AddTour @idCountry = 2, @idOperator = 1005, @tourName = 'Tour in German', @descr= 'Coooooool';
-exec AddTour @idCountry = 1005, @idOperator = 1006, @tourName = 'Tour in France', @descr= 'Lovvvvee';
-exec AddTour @idCountry = 1004, @idOperator = 1002, @tourName = 'Tour in Lithuania', @descr= 'Bear';
-exec AddTour @idCountry = 1006, @idOperator = 1004, @tourName = 'Tour in Greece', @descr= 'Songs';
-exec AddTour @idCountry = 1002, @idOperator = 2, @tourName = 'Tour in Austria', @descr= 'Cofee';
-exec AddTour @idCountry = 1003, @idOperator = 1003, @tourName = 'Tour in England', @descr= 'Breackfest';
+exec AddTour @idCountry = 2, @idOperator = 5, @tourName = 'Tour in German', @descr= 'Coooooool';
+exec AddTour @idCountry = 4, @idOperator = 6, @tourName = 'Tour in France', @descr= 'Lovvvvee';
+exec AddTour @idCountry = 3, @idOperator = 2, @tourName = 'Tour in Lithuania', @descr= 'Bear';
+exec AddTour @idCountry = 5, @idOperator = 4, @tourName = 'Tour in Greece', @descr= 'Songs';
+exec AddTour @idCountry = 1, @idOperator = 2, @tourName = 'Tour in Austria', @descr= 'Cofee';
+exec AddTour @idCountry = 2, @idOperator = 3, @tourName = 'Tour in England', @descr= 'Breackfest';
 
-exec AddVoucher @idTour = 1, @voucherName = 'HGJ123', @descr = 'Description of HGJ123', @fullPrice = '1500', @price = '1500', @numberOfPeople = 1, @nutrition = 1, @accommodation = 1, @hot = 1, @discount = 0
-exec AddVoucher @idTour = 3, @voucherName = 'KLH745', @descr = 'Description of KLH745', @fullPrice = '3000', @price = '2700', @numberOfPeople = 1, @nutrition = 1, @accommodation = 1, @hot =1 , @discount = 10
-exec AddVoucher @idTour = 4, @voucherName = 'BMG523', @descr = 'Description of BMG523', @fullPrice = '5600', @price = '4760', @numberOfPeople = 1, @nutrition = 1, @accommodation = 1, @hot = 0, @discount = 15
-exec AddVoucher @idTour = 2, @voucherName = 'GBM856', @descr = 'Description of GBM856', @fullPrice = '8200', @price = '8200', @numberOfPeople = 2, @nutrition = 1, @accommodation = 1, @hot = 0, @discount = 0
-exec AddVoucher @idTour = 7, @voucherName = 'YJL856', @descr = 'Description of YJL856', @fullPrice = '4200', @price = '4200', @numberOfPeople = 1, @nutrition = 1, @accommodation = 1, @hot = 1, @discount = 0
-exec AddVoucher @idTour = 6, @voucherName = 'WDF856', @descr = 'Description of WDF856', @fullPrice = '1000', @price = '900', @numberOfPeople = 1, @nutrition = 0, @accommodation = 0, @hot = 1, @discount = 10
-exec AddVoucher @idTour = 5, @voucherName = 'VNK124', @descr = 'Description of VNK124', @fullPrice = '6500', @price = '6110', @numberOfPeople = 2, @nutrition = 1, @accommodation = 1, @hot = 1, @discount = 6
+exec AddVoucher @idTour = 1, @voucherName = 'HGJ123', @descr = 'Description of HGJ123', @price = '1500', @numberOfPeople = 1, @nutrition = 1, @accommodation = 1, @hot = 1, @discount = 0
+exec AddVoucher @idTour = 9, @voucherName = 'KLH745', @descr = 'Description of KLH745', @price = '2700', @numberOfPeople = 1, @nutrition = 1, @accommodation = 1, @hot =1 , @discount = 10
+exec AddVoucher @idTour = 10, @voucherName = 'BMG523', @descr = 'Description of BMG523', @price = '4760', @numberOfPeople = 1, @nutrition = 1, @accommodation = 1, @hot = 0, @discount = 15
+exec AddVoucher @idTour = 8, @voucherName = 'GBM856', @descr = 'Description of GBM856', @price = '8200', @numberOfPeople = 2, @nutrition = 1, @accommodation = 1, @hot = 0, @discount = 0
+exec AddVoucher @idTour = 13, @voucherName = 'YJL856', @descr = 'Description of YJL856', @price = '4200', @numberOfPeople = 1, @nutrition = 1, @accommodation = 1, @hot = 1, @discount = 0
+exec AddVoucher @idTour = 12, @voucherName = 'WDF856', @descr = 'Description of WDF856', @price = '900', @numberOfPeople = 1, @nutrition = 0, @accommodation = 0, @hot = 1, @discount = 10
+exec AddVoucher @idTour = 11, @voucherName = 'VNK124', @descr = 'Description of VNK124', @price = '6110', @numberOfPeople = 2, @nutrition = 1, @accommodation = 1, @hot = 1, @discount = 6
 
 exec AddOrders 	@idVoucher = 1, @customer = 'Egor Ivanovski', @pay = 1
 exec AddOrders 	@idVoucher = 2, @customer = 'Shkoda Kristina', @pay = 1

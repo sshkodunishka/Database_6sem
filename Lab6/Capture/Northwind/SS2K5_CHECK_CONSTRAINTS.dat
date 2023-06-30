@@ -1,0 +1,8 @@
+261575970	OMwB_Column	6	OMwB_Column	([UnitPrice] >= 0)	OMwB_Column	OMwB_Row
+277576027	OMwB_Column	9	OMwB_Column	([ReorderLevel] >= 0)	OMwB_Column	OMwB_Row
+293576084	OMwB_Column	7	OMwB_Column	([UnitsInStock] >= 0)	OMwB_Column	OMwB_Row
+309576141	OMwB_Column	8	OMwB_Column	([UnitsOnOrder] >= 0)	OMwB_Column	OMwB_Row
+437576597	OMwB_Column	5	OMwB_Column	([Discount] >= 0 and [Discount] <= 1)	OMwB_Column	OMwB_Row
+453576654	OMwB_Column	4	OMwB_Column	([Quantity] > 0)	OMwB_Column	OMwB_Row
+469576711	OMwB_Column	3	OMwB_Column	([UnitPrice] >= 0)	OMwB_Column	OMwB_Row
+2025058250	OMwB_Column	6	OMwB_Column	([BirthDate] < getdate())	OMwB_Column	OMwB_Row

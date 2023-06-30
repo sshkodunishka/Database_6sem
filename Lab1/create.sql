@@ -16,7 +16,6 @@ idVoucher int IDENTITY PRIMARY KEY,
 idTour int,
 voucherName nvarchar(255),
 descr nvarchar(255),
-fullPrice money,
 price money,
 numberOfPeople int,
 nutrition bit,
@@ -40,7 +39,7 @@ country nvarchar(50),
 visa bit
 );
 
-alter table Touroperators(
+create table Touroperators(
 idOperator int IDENTITY PRIMARY KEY,
 name nvarchar(150),
 phoneNumber nvarchar(11),

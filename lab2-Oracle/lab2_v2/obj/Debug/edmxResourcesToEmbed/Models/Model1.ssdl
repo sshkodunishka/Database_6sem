@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище TravelAgencyModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="idCountry" />
+    </Key>
+    <Property Name="idCountry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="country" Type="nvarchar" MaxLength="50" />
+    <Property Name="visa" Type="bit" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="idOrder" />
+    </Key>
+    <Property Name="idOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idVoucher" Type="int" />
+    <Property Name="customer" Type="nvarchar" MaxLength="255" />
+    <Property Name="pay" Type="bit" />
+  </EntityType>
+  <EntityType Name="Touroperators">
+    <Key>
+      <PropertyRef Name="idOperator" />
+    </Key>
+    <Property Name="idOperator" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="150" />
+    <Property Name="phoneNumber" Type="nvarchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="Tours">
+    <Key>
+      <PropertyRef Name="idTours" />
+    </Key>
+    <Property Name="idTours" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCountry" Type="int" />
+    <Property Name="idOperator" Type="int" />
+    <Property Name="tourName" Type="nvarchar" MaxLength="255" />
+    <Property Name="descr" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Vouchers">
+    <Key>
+      <PropertyRef Name="idVoucher" />
+    </Key>
+    <Property Name="idVoucher" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idTour" Type="int" />
+    <Property Name="voucherName" Type="nvarchar" MaxLength="255" />
+    <Property Name="descr" Type="nvarchar" MaxLength="255" />
+    <Property Name="price" Type="money" />
+    <Property Name="numberOfPeople" Type="int" />
+    <Property Name="nutrition" Type="bit" />
+    <Property Name="accommodation" Type="bit" />
+    <Property Name="hot" Type="bit" />
+    <Property Name="discount" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "TravelAgency.dbo.CuctomerOperator" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="CuctomerOperator">
+          <Property Name="customer" Type="nvarchar" MaxLength="255" />
+          <Property Name="name" Type="nvarchar" MaxLength="150" />
+          <Property Name="phoneNumber" Type="nvarchar" MaxLength="11" />
+          <Property Name="tourName" Type="nvarchar" MaxLength="255" />
+          <Property Name="descr" Type="nvarchar" MaxLength="255" />
+          <Property Name="price" Type="money" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "TravelAgency.dbo.CustomerVoucher" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="CustomerVoucher">
+          <Property Name="customer" Type="nvarchar" MaxLength="255" />
+          <Property Name="voucherName" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "TravelAgency.dbo.NumberPeopleTour" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="NumberPeopleTour">
+          <Property Name="tourName" Type="nvarchar" MaxLength="255" />
+          <Property Name="numberOfPeople" Type="int" />
+        </EntityType>-->
+  <Association Name="FK__Orders__idVouche__440B1D61">
+    <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vouchers">
+        <PropertyRef Name="idVoucher" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="idVoucher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tours__idCountry__3D5E1FD2">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Tours" Type="Self.Tours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="idCountry" />
+      </Principal>
+      <Dependent Role="Tours">
+        <PropertyRef Name="idCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tours__idOperato__3E52440B">
+    <End Role="Touroperators" Type="Self.Touroperators" Multiplicity="0..1" />
+    <End Role="Tours" Type="Self.Tours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Touroperators">
+        <PropertyRef Name="idOperator" />
+      </Principal>
+      <Dependent Role="Tours">
+        <PropertyRef Name="idOperator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vouchers__idTour__412EB0B6">
+    <End Role="Tours" Type="Self.Tours" Multiplicity="0..1" />
+    <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tours">
+        <PropertyRef Name="idTours" />
+      </Principal>
+      <Dependent Role="Vouchers">
+        <PropertyRef Name="idTour" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="addCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="country" Type="nvarchar" Mode="In" />
+    <Parameter Name="visa" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="addOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="phoneNumber" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AddOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idVoucher" Type="int" Mode="In" />
+    <Parameter Name="customer" Type="nvarchar" Mode="In" />
+    <Parameter Name="pay" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="AddTour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCountry" Type="int" Mode="In" />
+    <Parameter Name="idOperator" Type="int" Mode="In" />
+    <Parameter Name="tourName" Type="nvarchar" Mode="In" />
+    <Parameter Name="descr" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="AddVoucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idTour" Type="int" Mode="In" />
+    <Parameter Name="voucherName" Type="nvarchar" Mode="In" />
+    <Parameter Name="descr" Type="nvarchar" Mode="In" />
+    <Parameter Name="price" Type="money" Mode="In" />
+    <Parameter Name="numberOfPeople" Type="int" Mode="In" />
+    <Parameter Name="nutrition" Type="bit" Mode="In" />
+    <Parameter Name="accommodation" Type="bit" Mode="In" />
+    <Parameter Name="hot" Type="bit" Mode="In" />
+    <Parameter Name="discount" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CountTour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int">
+    <Parameter Name="idCountry" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteCountry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="country" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customer" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteTour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tourName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteVoucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="voucherName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="getCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="getCountriesByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="country" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetOperatorByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetOperators" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetOrderByCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customer" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTourByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="tourName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetTours" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetVoucherByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="voucherName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetVouchers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectNumberOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectTours" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar">
+    <Parameter Name="idCountry" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdateCountries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="country" Type="nvarchar" Mode="In" />
+    <Parameter Name="visa" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="UpdateOperator" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="nvarchar" Mode="In" />
+    <Parameter Name="phoneNumber" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idVoucher" Type="int" Mode="In" />
+    <Parameter Name="customer" Type="nvarchar" Mode="In" />
+    <Parameter Name="pay" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="UpdateTour" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idCountry" Type="int" Mode="In" />
+    <Parameter Name="idOperator" Type="int" Mode="In" />
+    <Parameter Name="tourName" Type="nvarchar" Mode="In" />
+    <Parameter Name="descr" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateVoucher" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idTour" Type="int" Mode="In" />
+    <Parameter Name="voucherName" Type="nvarchar" Mode="In" />
+    <Parameter Name="descr" Type="nvarchar" Mode="In" />
+    <Parameter Name="fullPrice" Type="money" Mode="In" />
+    <Parameter Name="price" Type="money" Mode="In" />
+    <Parameter Name="numberOfPeople" Type="int" Mode="In" />
+    <Parameter Name="nutrition" Type="bit" Mode="In" />
+    <Parameter Name="accommodation" Type="bit" Mode="In" />
+    <Parameter Name="hot" Type="bit" Mode="In" />
+    <Parameter Name="discount" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище TravelAgencyModelContainer">
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Touroperators" EntityType="Self.Touroperators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tours" EntityType="Self.Tours" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vouchers" EntityType="Self.Vouchers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Orders__idVouche__440B1D61" Association="Self.FK__Orders__idVouche__440B1D61">
+      <End Role="Vouchers" EntitySet="Vouchers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tours__idCountry__3D5E1FD2" Association="Self.FK__Tours__idCountry__3D5E1FD2">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Tours" EntitySet="Tours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tours__idOperato__3E52440B" Association="Self.FK__Tours__idOperato__3E52440B">
+      <End Role="Touroperators" EntitySet="Touroperators" />
+      <End Role="Tours" EntitySet="Tours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vouchers__idTour__412EB0B6" Association="Self.FK__Vouchers__idTour__412EB0B6">
+      <End Role="Tours" EntitySet="Tours" />
+      <End Role="Vouchers" EntitySet="Vouchers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

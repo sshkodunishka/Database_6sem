@@ -1,0 +1,71 @@
+
+SQL*Loader: Release 11.1.0.6.0 - Production on Fri Aug 22 12:46:14 2008
+
+Copyright (c) 1982, 2007, Oracle.  All rights reserved.
+
+Control File:   Oracle\dbo_Northwind.Products.ctl
+Data File:      [Northwind].[dbo].[Products].dat
+  File processing option string: "str '<EORD>'"
+  Bad File:     Oracle\[Northwind].[dbo].[Products].bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table DBO_NORTHWIND.PRODUCTS, loaded from every logical record.
+Insert option in effect for this table: INSERT
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+PRODUCTID                           FIRST     *           CHARACTER            
+    Terminator string : '<EOFD>'
+PRODUCTNAME                          NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:ProductName, CHR(00), ' ', :ProductName)"
+SUPPLIERID                           NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+CATEGORYID                           NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+QUANTITYPERUNIT                      NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:QuantityPerUnit, CHR(00), ' ', :QuantityPerUnit)"
+UNITPRICE                            NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "TRANSLATE (:UnitPrice,'1,','1')"
+UNITSINSTOCK                         NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+UNITSONORDER                         NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+REORDERLEVEL                         NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+DISCONTINUED                         NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+
+
+Table DBO_NORTHWIND.PRODUCTS:
+  77 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 165120 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:            77
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Fri Aug 22 12:46:14 2008
+Run ended on Fri Aug 22 12:46:14 2008
+
+Elapsed time was:     00:00:00.08
+CPU time was:         00:00:00.01

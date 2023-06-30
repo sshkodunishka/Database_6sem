@@ -1,0 +1,40 @@
+INSERT INTO routes (origin, destination, distance)
+VALUES ('New York', 'Los Angeles', 2778.6);
+
+INSERT INTO routes (origin, destination, distance)
+VALUES ('Minsk', 'Mogilev', 306);
+
+
+INSERT INTO routes (origin, destination, distance)
+VALUES ('Minsk2', 'Jlobin2', 306);
+
+SELECT * FROM routes;
+
+--4
+CREATE VIEW long_routes_view AS
+SELECT id, origin, destination, distance
+FROM routes
+WHERE distance > 2000;
+
+--5
+create trigger Increase_dest after insert on routes
+    begin
+       update routes set distance=routes.distance+100;
+    end;
+
+--6
+SELECT * FROM long_routes_view;
+
+--7
+select * from routes;
+update routes set distance=routes.distance+100 where id = 1;
+delete from routes where id = 2
+
+BEGIN TRANSACTION;
+INSERT INTO routes (origin, destination, distance)
+VALUES ('Gomel', 'Brest', 2778.6);
+
+INSERT INTO routes (origin, destination, distance)
+VALUES ('Chicago', 'Miami', 1200);
+
+COMMIT;

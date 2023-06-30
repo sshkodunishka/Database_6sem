@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище TravelAgencyModelContainer" CdmEntityContainer="TravelAgencyEntities">
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="TravelAgencyModel.Countries">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="idCountry" ColumnName="idCountry" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="visa" ColumnName="visa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="TravelAgencyModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+          <ScalarProperty Name="idVoucher" ColumnName="idVoucher" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="pay" ColumnName="pay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Touroperators">
+      <EntityTypeMapping TypeName="TravelAgencyModel.Touroperators">
+        <MappingFragment StoreEntitySet="Touroperators">
+          <ScalarProperty Name="idOperator" ColumnName="idOperator" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tours">
+      <EntityTypeMapping TypeName="TravelAgencyModel.Tours">
+        <MappingFragment StoreEntitySet="Tours">
+          <ScalarProperty Name="idTours" ColumnName="idTours" />
+          <ScalarProperty Name="idCountry" ColumnName="idCountry" />
+          <ScalarProperty Name="idOperator" ColumnName="idOperator" />
+          <ScalarProperty Name="tourName" ColumnName="tourName" />
+          <ScalarProperty Name="descr" ColumnName="descr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vouchers">
+      <EntityTypeMapping TypeName="TravelAgencyModel.Vouchers">
+        <MappingFragment StoreEntitySet="Vouchers">
+          <ScalarProperty Name="idVoucher" ColumnName="idVoucher" />
+          <ScalarProperty Name="idTour" ColumnName="idTour" />
+          <ScalarProperty Name="voucherName" ColumnName="voucherName" />
+          <ScalarProperty Name="descr" ColumnName="descr" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="numberOfPeople" ColumnName="numberOfPeople" />
+          <ScalarProperty Name="nutrition" ColumnName="nutrition" />
+          <ScalarProperty Name="accommodation" ColumnName="accommodation" />
+          <ScalarProperty Name="hot" ColumnName="hot" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="addCountries" FunctionName="Хранилище TravelAgencyModel.addCountries" />
+    <FunctionImportMapping FunctionImportName="addOperator" FunctionName="Хранилище TravelAgencyModel.addOperator" />
+    <FunctionImportMapping FunctionImportName="AddOrders" FunctionName="Хранилище TravelAgencyModel.AddOrders" />
+    <FunctionImportMapping FunctionImportName="AddTour" FunctionName="Хранилище TravelAgencyModel.AddTour" />
+    <FunctionImportMapping FunctionImportName="AddVoucher" FunctionName="Хранилище TravelAgencyModel.AddVoucher" />
+    <FunctionImportMapping FunctionImportName="DeleteCountry" FunctionName="Хранилище TravelAgencyModel.DeleteCountry" />
+    <FunctionImportMapping FunctionImportName="DeleteOperator" FunctionName="Хранилище TravelAgencyModel.DeleteOperator" />
+    <FunctionImportMapping FunctionImportName="DeleteOrder" FunctionName="Хранилище TravelAgencyModel.DeleteOrder" />
+    <FunctionImportMapping FunctionImportName="DeleteTour" FunctionName="Хранилище TravelAgencyModel.DeleteTour" />
+    <FunctionImportMapping FunctionImportName="DeleteVoucher" FunctionName="Хранилище TravelAgencyModel.DeleteVoucher" />
+    <FunctionImportMapping FunctionImportName="getCountries" FunctionName="Хранилище TravelAgencyModel.getCountries">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.getCountries_Result">
+          <ScalarProperty Name="idCountry" ColumnName="idCountry" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="visa" ColumnName="visa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getCountriesByName" FunctionName="Хранилище TravelAgencyModel.getCountriesByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.getCountriesByName_Result">
+          <ScalarProperty Name="idCountry" ColumnName="idCountry" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="visa" ColumnName="visa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOperatorByName" FunctionName="Хранилище TravelAgencyModel.GetOperatorByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.GetOperatorByName_Result">
+          <ScalarProperty Name="idOperator" ColumnName="idOperator" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOperators" FunctionName="Хранилище TravelAgencyModel.GetOperators">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.GetOperators_Result">
+          <ScalarProperty Name="idOperator" ColumnName="idOperator" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="phoneNumber" ColumnName="phoneNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrderByCustomer" FunctionName="Хранилище TravelAgencyModel.GetOrderByCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.GetOrderByCustomer_Result">
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+          <ScalarProperty Name="idVoucher" ColumnName="idVoucher" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="pay" ColumnName="pay" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetOrders" FunctionName="Хранилище TravelAgencyModel.GetOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.GetOrders_Result">
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+          <ScalarProperty Name="idVoucher" ColumnName="idVoucher" />
+          <ScalarProperty Name="customer" ColumnName="customer" />
+          <ScalarProperty Name="pay" ColumnName="pay" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTourByName" FunctionName="Хранилище TravelAgencyModel.GetTourByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.GetTourByName_Result">
+          <ScalarProperty Name="idTours" ColumnName="idTours" />
+          <ScalarProperty Name="idCountry" ColumnName="idCountry" />
+          <ScalarProperty Name="idOperator" ColumnName="idOperator" />
+          <ScalarProperty Name="tourName" ColumnName="tourName" />
+          <ScalarProperty Name="descr" ColumnName="descr" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTours" FunctionName="Хранилище TravelAgencyModel.GetTours">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.GetTours_Result">
+          <ScalarProperty Name="idTours" ColumnName="idTours" />
+          <ScalarProperty Name="idCountry" ColumnName="idCountry" />
+          <ScalarProperty Name="idOperator" ColumnName="idOperator" />
+          <ScalarProperty Name="tourName" ColumnName="tourName" />
+          <ScalarProperty Name="descr" ColumnName="descr" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetVoucherByName" FunctionName="Хранилище TravelAgencyModel.GetVoucherByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.GetVoucherByName_Result">
+          <ScalarProperty Name="idVoucher" ColumnName="idVoucher" />
+          <ScalarProperty Name="idTour" ColumnName="idTour" />
+          <ScalarProperty Name="voucherName" ColumnName="voucherName" />
+          <ScalarProperty Name="descr" ColumnName="descr" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="numberOfPeople" ColumnName="numberOfPeople" />
+          <ScalarProperty Name="nutrition" ColumnName="nutrition" />
+          <ScalarProperty Name="accommodation" ColumnName="accommodation" />
+          <ScalarProperty Name="hot" ColumnName="hot" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetVouchers" FunctionName="Хранилище TravelAgencyModel.GetVouchers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TravelAgencyModel.GetVouchers_Result">
+          <ScalarProperty Name="idVoucher" ColumnName="idVoucher" />
+          <ScalarProperty Name="idTour" ColumnName="idTour" />
+          <ScalarProperty Name="voucherName" ColumnName="voucherName" />
+          <ScalarProperty Name="descr" ColumnName="descr" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="numberOfPeople" ColumnName="numberOfPeople" />
+          <ScalarProperty Name="nutrition" ColumnName="nutrition" />
+          <ScalarProperty Name="accommodation" ColumnName="accommodation" />
+          <ScalarProperty Name="hot" ColumnName="hot" />
+          <ScalarProperty Name="discount" ColumnName="discount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateCountries" FunctionName="Хранилище TravelAgencyModel.UpdateCountries" />
+    <FunctionImportMapping FunctionImportName="UpdateOperator" FunctionName="Хранилище TravelAgencyModel.UpdateOperator" />
+    <FunctionImportMapping FunctionImportName="UpdateOrder" FunctionName="Хранилище TravelAgencyModel.UpdateOrder" />
+    <FunctionImportMapping FunctionImportName="UpdateTour" FunctionName="Хранилище TravelAgencyModel.UpdateTour" />
+    <FunctionImportMapping FunctionImportName="UpdateVoucher" FunctionName="Хранилище TravelAgencyModel.UpdateVoucher" />
+  </EntityContainerMapping>
+</Mapping>

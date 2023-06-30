@@ -1,0 +1,87 @@
+
+SQL*Loader: Release 11.1.0.6.0 - Production on Fri Aug 22 12:46:14 2008
+
+Copyright (c) 1982, 2007, Oracle.  All rights reserved.
+
+Control File:   Oracle\dbo_Northwind.Orders.ctl
+Data File:      [Northwind].[dbo].[Orders].dat
+  File processing option string: "str '<EORD>'"
+  Bad File:     Oracle\[Northwind].[dbo].[Orders].bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     64 rows, maximum of 256000 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table DBO_NORTHWIND.ORDERS, loaded from every logical record.
+Insert option in effect for this table: INSERT
+TRAILING NULLCOLS option in effect
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+ORDERID                             FIRST     *           CHARACTER            
+    Terminator string : '<EOFD>'
+CUSTOMERID                           NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:CustomerID, CHR(00), ' ', :CustomerID)"
+EMPLOYEEID                           NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+ORDERDATE                            NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "TO_TIMESTAMP(:OrderDate, 'yyyy-mm-dd HH24:mi:ss.ff3')"
+REQUIREDDATE                         NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "TO_TIMESTAMP(:RequiredDate, 'yyyy-mm-dd HH24:mi:ss.ff3')"
+SHIPPEDDATE                          NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "TO_TIMESTAMP(:ShippedDate, 'yyyy-mm-dd HH24:mi:ss.ff3')"
+SHIPVIA                              NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+FREIGHT                              NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "TRANSLATE (:Freight,'1,','1')"
+SHIPNAME                             NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:ShipName, CHR(00), ' ', :ShipName)"
+SHIPADDRESS                          NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:ShipAddress, CHR(00), ' ', :ShipAddress)"
+SHIPCITY                             NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:ShipCity, CHR(00), ' ', :ShipCity)"
+SHIPREGION                           NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:ShipRegion, CHR(00), ' ', :ShipRegion)"
+SHIPPOSTALCODE                       NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:ShipPostalCode, CHR(00), ' ', :ShipPostalCode)"
+SHIPCOUNTRY                          NEXT     *           CHARACTER            
+    Terminator string : '<EOFD>'
+    SQL string for column : "DECODE(:ShipCountry, CHR(00), ' ', :ShipCountry)"
+
+
+Table DBO_NORTHWIND.ORDERS:
+  830 Rows successfully loaded.
+  0 Rows not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 231168 bytes(64 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:           830
+Total logical records rejected:         0
+Total logical records discarded:        0
+
+Run began on Fri Aug 22 12:46:14 2008
+Run ended on Fri Aug 22 12:46:14 2008
+
+Elapsed time was:     00:00:00.16
+CPU time was:         00:00:00.05

@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TravelAgencyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="idCountry" />
+    </Key>
+    <Property Name="idCountry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="visa" Type="Boolean" />
+    <NavigationProperty Name="Tours" Relationship="Self.FK__Tours__idCountry__3D5E1FD2" FromRole="Countries" ToRole="Tours" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="idOrder" />
+    </Key>
+    <Property Name="idOrder" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idVoucher" Type="Int32" />
+    <Property Name="customer" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="pay" Type="Boolean" />
+    <NavigationProperty Name="Vouchers" Relationship="Self.FK__Orders__idVouche__440B1D61" FromRole="Orders" ToRole="Vouchers" />
+  </EntityType>
+  <EntityType Name="Touroperators">
+    <Key>
+      <PropertyRef Name="idOperator" />
+    </Key>
+    <Property Name="idOperator" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="phoneNumber" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tours" Relationship="Self.FK__Tours__idOperato__3E52440B" FromRole="Touroperators" ToRole="Tours" />
+  </EntityType>
+  <EntityType Name="Tours">
+    <Key>
+      <PropertyRef Name="idTours" />
+    </Key>
+    <Property Name="idTours" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCountry" Type="Int32" />
+    <Property Name="idOperator" Type="Int32" />
+    <Property Name="tourName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="descr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Countries" Relationship="Self.FK__Tours__idCountry__3D5E1FD2" FromRole="Tours" ToRole="Countries" />
+    <NavigationProperty Name="Touroperators" Relationship="Self.FK__Tours__idOperato__3E52440B" FromRole="Tours" ToRole="Touroperators" />
+    <NavigationProperty Name="Vouchers" Relationship="Self.FK__Vouchers__idTour__412EB0B6" FromRole="Tours" ToRole="Vouchers" />
+  </EntityType>
+  <EntityType Name="Vouchers">
+    <Key>
+      <PropertyRef Name="idVoucher" />
+    </Key>
+    <Property Name="idVoucher" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idTour" Type="Int32" />
+    <Property Name="voucherName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="descr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="numberOfPeople" Type="Int32" />
+    <Property Name="nutrition" Type="Boolean" />
+    <Property Name="accommodation" Type="Boolean" />
+    <Property Name="hot" Type="Boolean" />
+    <Property Name="discount" Type="Int32" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__idVouche__440B1D61" FromRole="Vouchers" ToRole="Orders" />
+    <NavigationProperty Name="Tours" Relationship="Self.FK__Vouchers__idTour__412EB0B6" FromRole="Vouchers" ToRole="Tours" />
+  </EntityType>
+  <Association Name="FK__Tours__idCountry__3D5E1FD2">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="0..1" />
+    <End Role="Tours" Type="Self.Tours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="idCountry" />
+      </Principal>
+      <Dependent Role="Tours">
+        <PropertyRef Name="idCountry" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__idVouche__440B1D61">
+    <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vouchers">
+        <PropertyRef Name="idVoucher" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="idVoucher" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tours__idOperato__3E52440B">
+    <End Role="Touroperators" Type="Self.Touroperators" Multiplicity="0..1" />
+    <End Role="Tours" Type="Self.Tours" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Touroperators">
+        <PropertyRef Name="idOperator" />
+      </Principal>
+      <Dependent Role="Tours">
+        <PropertyRef Name="idOperator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Vouchers__idTour__412EB0B6">
+    <End Role="Tours" Type="Self.Tours" Multiplicity="0..1" />
+    <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tours">
+        <PropertyRef Name="idTours" />
+      </Principal>
+      <Dependent Role="Vouchers">
+        <PropertyRef Name="idTour" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TravelAgencyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Countries" EntityType="Self.Countries" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="Touroperators" EntityType="Self.Touroperators" />
+    <EntitySet Name="Tours" EntityType="Self.Tours" />
+    <EntitySet Name="Vouchers" EntityType="Self.Vouchers" />
+    <AssociationSet Name="FK__Tours__idCountry__3D5E1FD2" Association="Self.FK__Tours__idCountry__3D5E1FD2">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Tours" EntitySet="Tours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__idVouche__440B1D61" Association="Self.FK__Orders__idVouche__440B1D61">
+      <End Role="Vouchers" EntitySet="Vouchers" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tours__idOperato__3E52440B" Association="Self.FK__Tours__idOperato__3E52440B">
+      <End Role="Touroperators" EntitySet="Touroperators" />
+      <End Role="Tours" EntitySet="Tours" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Vouchers__idTour__412EB0B6" Association="Self.FK__Vouchers__idTour__412EB0B6">
+      <End Role="Tours" EntitySet="Tours" />
+      <End Role="Vouchers" EntitySet="Vouchers" />
+    </AssociationSet>
+    <FunctionImport Name="addCountries">
+      <Parameter Name="country" Mode="In" Type="String" />
+      <Parameter Name="visa" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="addOperator">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="phoneNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddOrders">
+      <Parameter Name="idVoucher" Mode="In" Type="Int32" />
+      <Parameter Name="customer" Mode="In" Type="String" />
+      <Parameter Name="pay" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="AddTour">
+      <Parameter Name="idCountry" Mode="In" Type="Int32" />
+      <Parameter Name="idOperator" Mode="In" Type="Int32" />
+      <Parameter Name="tourName" Mode="In" Type="String" />
+      <Parameter Name="descr" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="AddVoucher">
+      <Parameter Name="idTour" Mode="In" Type="Int32" />
+      <Parameter Name="voucherName" Mode="In" Type="String" />
+      <Parameter Name="descr" Mode="In" Type="String" />
+      <Parameter Name="price" Mode="In" Type="Decimal" />
+      <Parameter Name="numberOfPeople" Mode="In" Type="Int32" />
+      <Parameter Name="nutrition" Mode="In" Type="Boolean" />
+      <Parameter Name="accommodation" Mode="In" Type="Boolean" />
+      <Parameter Name="hot" Mode="In" Type="Boolean" />
+      <Parameter Name="discount" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteCountry">
+      <Parameter Name="country" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteOperator">
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteOrder">
+      <Parameter Name="customer" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteTour">
+      <Parameter Name="tourName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteVoucher">
+      <Parameter Name="voucherName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="getCountries" ReturnType="Collection(TravelAgencyModel.getCountries_Result)" />
+    <FunctionImport Name="getCountriesByName" ReturnType="Collection(TravelAgencyModel.getCountriesByName_Result)">
+      <Parameter Name="country" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetOperatorByName" ReturnType="Collection(TravelAgencyModel.GetOperatorByName_Result)">
+      <Parameter Name="name" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetOperators" ReturnType="Collection(TravelAgencyModel.GetOperators_Result)" />
+    <FunctionImport Name="GetOrderByCustomer" ReturnType="Collection(TravelAgencyModel.GetOrderByCustomer_Result)">
+      <Parameter Name="customer" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetOrders" ReturnType="Collection(TravelAgencyModel.GetOrders_Result)" />
+    <FunctionImport Name="GetTourByName" ReturnType="Collection(TravelAgencyModel.GetTourByName_Result)">
+      <Parameter Name="tourName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetTours" ReturnType="Collection(TravelAgencyModel.GetTours_Result)" />
+    <FunctionImport Name="GetVoucherByName" ReturnType="Collection(TravelAgencyModel.GetVoucherByName_Result)">
+      <Parameter Name="voucherName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetVouchers" ReturnType="Collection(TravelAgencyModel.GetVouchers_Result)" />
+    <FunctionImport Name="UpdateCountries">
+      <Parameter Name="country" Mode="In" Type="String" />
+      <Parameter Name="visa" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOperator">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="phoneNumber" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateOrder">
+      <Parameter Name="idVoucher" Mode="In" Type="Int32" />
+      <Parameter Name="customer" Mode="In" Type="String" />
+      <Parameter Name="pay" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateTour">
+      <Parameter Name="idCountry" Mode="In" Type="Int32" />
+      <Parameter Name="idOperator" Mode="In" Type="Int32" />
+      <Parameter Name="tourName" Mode="In" Type="String" />
+      <Parameter Name="descr" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateVoucher">
+      <Parameter Name="idTour" Mode="In" Type="Int32" />
+      <Parameter Name="voucherName" Mode="In" Type="String" />
+      <Parameter Name="descr" Mode="In" Type="String" />
+      <Parameter Name="fullPrice" Mode="In" Type="Decimal" />
+      <Parameter Name="price" Mode="In" Type="Decimal" />
+      <Parameter Name="numberOfPeople" Mode="In" Type="Int32" />
+      <Parameter Name="nutrition" Mode="In" Type="Boolean" />
+      <Parameter Name="accommodation" Mode="In" Type="Boolean" />
+      <Parameter Name="hot" Mode="In" Type="Boolean" />
+      <Parameter Name="discount" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="getCountries_Result">
+    <Property Type="Int32" Name="idCountry" Nullable="false" />
+    <Property Type="String" Name="country" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="visa" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getCountriesByName_Result">
+    <Property Type="Int32" Name="idCountry" Nullable="false" />
+    <Property Type="String" Name="country" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="visa" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetOperatorByName_Result">
+    <Property Type="Int32" Name="idOperator" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="phoneNumber" Nullable="true" MaxLength="11" />
+  </ComplexType>
+  <ComplexType Name="GetOperators_Result">
+    <Property Type="Int32" Name="idOperator" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="phoneNumber" Nullable="true" MaxLength="11" />
+  </ComplexType>
+  <ComplexType Name="GetOrderByCustomer_Result">
+    <Property Type="Int32" Name="idOrder" Nullable="false" />
+    <Property Type="Int32" Name="idVoucher" Nullable="true" />
+    <Property Type="String" Name="customer" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="pay" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetOrders_Result">
+    <Property Type="Int32" Name="idOrder" Nullable="false" />
+    <Property Type="Int32" Name="idVoucher" Nullable="true" />
+    <Property Type="String" Name="customer" Nullable="true" MaxLength="255" />
+    <Property Type="Boolean" Name="pay" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetTourByName_Result">
+    <Property Type="Int32" Name="idTours" Nullable="false" />
+    <Property Type="Int32" Name="idCountry" Nullable="true" />
+    <Property Type="Int32" Name="idOperator" Nullable="true" />
+    <Property Type="String" Name="tourName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="descr" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="GetTours_Result">
+    <Property Type="Int32" Name="idTours" Nullable="false" />
+    <Property Type="Int32" Name="idCountry" Nullable="true" />
+    <Property Type="Int32" Name="idOperator" Nullable="true" />
+    <Property Type="String" Name="tourName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="descr" Nullable="true" MaxLength="255" />
+  </ComplexType>
+  <ComplexType Name="GetVoucherByName_Result">
+    <Property Type="Int32" Name="idVoucher" Nullable="false" />
+    <Property Type="Int32" Name="idTour" Nullable="true" />
+    <Property Type="String" Name="voucherName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="descr" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="price" Nullable="true" Precision="19" />
+    <Property Type="Int32" Name="numberOfPeople" Nullable="true" />
+    <Property Type="Boolean" Name="nutrition" Nullable="true" />
+    <Property Type="Boolean" Name="accommodation" Nullable="true" />
+    <Property Type="Boolean" Name="hot" Nullable="true" />
+    <Property Type="Int32" Name="discount" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetVouchers_Result">
+    <Property Type="Int32" Name="idVoucher" Nullable="false" />
+    <Property Type="Int32" Name="idTour" Nullable="true" />
+    <Property Type="String" Name="voucherName" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="descr" Nullable="true" MaxLength="255" />
+    <Property Type="Decimal" Name="price" Nullable="true" Precision="19" />
+    <Property Type="Int32" Name="numberOfPeople" Nullable="true" />
+    <Property Type="Boolean" Name="nutrition" Nullable="true" />
+    <Property Type="Boolean" Name="accommodation" Nullable="true" />
+    <Property Type="Boolean" Name="hot" Nullable="true" />
+    <Property Type="Int32" Name="discount" Nullable="true" />
+  </ComplexType>
+</Schema>

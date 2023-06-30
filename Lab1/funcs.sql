@@ -1,4 +1,4 @@
-alter FUNCTION CountTour(@idCountry int)
+create FUNCTION CountTour(@idCountry int)
 RETURNS int
 AS
 -- Returns the stock level for the product.

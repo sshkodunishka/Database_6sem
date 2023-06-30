@@ -1,0 +1,44 @@
+﻿@model IEnumerable<lab2_v2.Models.Orders>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Vouchers.voucherName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pay)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vouchers.voucherName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idOrder }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idOrder })
+        </td>
+    </tr>
+}
+
+</table>
